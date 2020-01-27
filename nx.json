@@ -1,0 +1,44 @@
+{
+  "npmScope": "nx-workspace-name",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "one-app": {
+      "tags": []
+    },
+    "one-app-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "one-app"
+      ]
+    },
+    "shared": {
+      "tags": [
+        "library"
+      ]
+    },
+    "two-app": {
+      "tags": []
+    },
+    "two-app-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "two-app"
+      ]
+    },
+    "shared-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "shared"
+      ]
+    }
+  }
+}
