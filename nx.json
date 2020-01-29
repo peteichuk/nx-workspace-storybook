@@ -39,6 +39,15 @@
       "implicitDependencies": [
         "shared"
       ]
+    },
+    "one-lib": {
+      "tags": []
+    },
+    "one-lib-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "one-lib"
+      ]
     }
   }
 }

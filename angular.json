@@ -362,6 +362,102 @@
           }
         }
       }
+    },
+    "one-lib": {
+      "projectType": "library",
+      "root": "libs/one-lib",
+      "sourceRoot": "libs/one-lib/src",
+      "prefix": "nx-workspace-name",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/one-lib/tsconfig.lib.json",
+              "libs/one-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/one-lib/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/one-lib/jest.config.js",
+            "tsConfig": "libs/one-lib/tsconfig.spec.json",
+            "setupFile": "libs/one-lib/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/one-lib/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/one-lib",
+            "config": {
+              "configFolder": "libs/one-lib/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "one-lib-e2e": {
+      "root": "apps/one-lib-e2e",
+      "sourceRoot": "apps/one-lib-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/one-lib-e2e/cypress.json",
+            "tsConfig": "apps/one-lib-e2e/tsconfig.e2e.json",
+            "devServerTarget": "one-lib:storybook"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "one-lib:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/one-lib-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/one-lib-e2e/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

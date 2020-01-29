@@ -14,9 +14,10 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./nx-workspace-storybook",
     "paths": {
-      "@nx-workspace-name/shared": ["libs/shared/src/index.ts"]
+      "@nx-workspace-name/shared": ["libs/shared/src/index.ts"],
+      "@nx-workspace-name/one-lib": ["libs/one-lib/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
