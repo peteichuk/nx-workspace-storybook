@@ -81,11 +81,9 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
 ## [Storybook](https://nx.dev/angular/guides/modernize-storybook-angular)
 
-Install `yarn add @nrwl/storybook --dev`
+Generate `nx g @nrwl/angular:storybook-configuration {my-app-name}`
 
-Generate `nx g @nrwl/angular:storybook-configuration shared`
-
-Run `nx run shared:storybook`
+Run single app/lib `nx run {my-app-name}:storybook`
 
 ## Further help
 
